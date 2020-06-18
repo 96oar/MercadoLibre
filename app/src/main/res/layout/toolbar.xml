@@ -17,7 +17,7 @@
 
     <EditText
         android:id="@+id/search_product"
-        android:layout_width="299dp"
+        android:layout_width="300dp"
         android:layout_height="37dp"
         android:imeOptions="actionSearch"
         android:lines="1"

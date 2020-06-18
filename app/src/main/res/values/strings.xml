@@ -3,4 +3,8 @@
     <string name="buscar_productos">Buscar Productos</string>
     <string name="buscar_producto">Buscar Producto</string>
     <string name="image_product">image_product</string>
+    <string name="resource_not_found">Resource not found</string>
+    <string name="bad_request">Bad Request</string>
+    <string name="server_error">Server Error</string>
+    <string name="unknown_error">Unknown Error</string>
 </resources>

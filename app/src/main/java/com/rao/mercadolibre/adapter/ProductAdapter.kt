@@ -18,7 +18,7 @@ import java.util.*
 import kotlin.math.roundToInt
 
 //val showItemDetails:(article: Article) -> Unit
-class ProductAdapter() : RecyclerView.Adapter<ViewHolder>() {
+class ProductAdapter : RecyclerView.Adapter<ViewHolder>() {
     private var dataList = listOf<Article>()
     fun setDataList(data: List<Article>) {
         dataList = data

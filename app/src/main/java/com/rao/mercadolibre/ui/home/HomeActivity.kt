@@ -18,12 +18,13 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var searchViewModel: HomeViewModel
     private lateinit var adapter: ProductAdapter
-    private var foundData: Boolean = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         initRecyclerView()
+
         searchViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         searchViewModel.productList.observe(this, Observer {
@@ -32,9 +33,8 @@ class HomeActivity : AppCompatActivity() {
         })
 
         search_product?.setOnKeyListener((View.OnKeyListener { v, keyCode, event ->
-            foundData = false
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
-                if (!foundData) {
+                if (searchViewModel.productList.value == null) {
                     searchViewModel.searchProduct(search_product.text.toString())
                     val inputMethod : InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                     inputMethod.hideSoftInputFromWindow(v.applicationWindowToken,0)

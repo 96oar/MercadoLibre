@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.rao.mercadolibre.common.CodeError
 import com.rao.mercadolibre.repository.MeLiRepository
 import com.rao.mercadolibre.retrofit.models.Response
 
@@ -22,6 +23,8 @@ class HomeViewModel() : ViewModel() {
             { _, response ->
                 if (response.isSuccessful) {
                     productList.postValue(response.body())
+                }else{
+                    CodeError.evaluateResponseCode(response.code(),HomeViewModel::class.simpleName.toString())
                 }
             })
     }

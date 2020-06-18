@@ -1,6 +1,5 @@
 package com.rao.mercadolibre.retrofit
 
-import androidx.lifecycle.MutableLiveData
 import com.rao.mercadolibre.retrofit.models.Detail
 import com.rao.mercadolibre.retrofit.models.Response
 import retrofit2.Call

@@ -1,7 +1,6 @@
 package com.rao.mercadolibre.repository
 
 import com.rao.mercadolibre.retrofit.MeLiClient
-
 import com.rao.mercadolibre.retrofit.MeLiService
 import com.rao.mercadolibre.retrofit.models.Detail
 import com.rao.mercadolibre.retrofit.models.Response

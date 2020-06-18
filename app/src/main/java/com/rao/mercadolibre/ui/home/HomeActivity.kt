@@ -19,7 +19,6 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var searchViewModel: HomeViewModel
     private lateinit var adapter: ProductAdapter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -36,7 +35,7 @@ class HomeActivity : AppCompatActivity() {
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
                 if (searchViewModel.productList.value == null) {
                     searchViewModel.searchProduct(search_product.text.toString())
-                    val inputMethod : InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    val inputMethod  = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                     inputMethod.hideSoftInputFromWindow(v.applicationWindowToken,0)
                 }
                 return@OnKeyListener true

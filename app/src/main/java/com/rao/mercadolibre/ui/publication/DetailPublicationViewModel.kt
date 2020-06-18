@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.rao.mercadolibre.common.CodeError
 import com.rao.mercadolibre.repository.MeLiRepository
 import com.rao.mercadolibre.retrofit.models.Detail
-import com.rao.mercadolibre.ui.home.HomeViewModel
 
 class DetailPublicationViewModel : ViewModel() {
     val meLiRepository: MeLiRepository = MeLiRepository()

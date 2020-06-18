@@ -1,7 +1,6 @@
 package com.rao.mercadolibre.adapter
 
 import android.content.Context
-import android.graphics.Picture
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView

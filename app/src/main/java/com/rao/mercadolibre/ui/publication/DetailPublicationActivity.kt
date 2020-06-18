@@ -1,28 +1,19 @@
 package com.rao.mercadolibre.ui.publication
 
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.KeyEvent
-import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
 import com.rao.mercadolibre.R
 import com.rao.mercadolibre.adapter.PictureAdapter
-import com.rao.mercadolibre.adapter.ProductAdapter
 import com.rao.mercadolibre.common.Constants
 import com.rao.mercadolibre.retrofit.models.Article
-import com.rao.mercadolibre.retrofit.models.Picture
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_publication.*
-import kotlinx.android.synthetic.main.publication.view.*
 import kotlinx.android.synthetic.main.toolbar_no_search.*
 
 class DetailPublicationActivity : AppCompatActivity() {
     lateinit var detailPublicationViewModel: DetailPublicationViewModel
-    lateinit var listImage: ArrayList<ImageView>
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +32,7 @@ class DetailPublicationActivity : AppCompatActivity() {
 
     }
 
+    //region private functions
 
     private fun populatePublication(detailPublication: Article) {
         title_product.text = detailPublication.title
@@ -67,9 +59,9 @@ class DetailPublicationActivity : AppCompatActivity() {
         if (detailPublicationViewModel.item.value == null) {
             detailPublicationViewModel.getItems(detailPublication.id)
         }
-
     }
 
+//endregion
 
 }
 

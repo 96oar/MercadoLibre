@@ -1,8 +1,6 @@
 package com.rao.mercadolibre.common
 
-import android.content.Context
 import android.util.Log
-import android.widget.Toast
 import com.rao.mercadolibre.R
 
 class CodeError {

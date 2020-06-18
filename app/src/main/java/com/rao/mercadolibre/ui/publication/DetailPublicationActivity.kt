@@ -10,7 +10,11 @@ import com.rao.mercadolibre.adapter.PictureAdapter
 import com.rao.mercadolibre.common.Constants
 import com.rao.mercadolibre.retrofit.models.Article
 import kotlinx.android.synthetic.main.activity_detail_publication.*
+import kotlinx.android.synthetic.main.publication.view.*
 import kotlinx.android.synthetic.main.toolbar_no_search.*
+import java.text.NumberFormat
+import java.util.*
+import kotlin.math.roundToInt
 
 class DetailPublicationActivity : AppCompatActivity() {
     lateinit var detailPublicationViewModel: DetailPublicationViewModel
@@ -36,6 +40,10 @@ class DetailPublicationActivity : AppCompatActivity() {
 
     private fun populatePublication(detailPublication: Article) {
         title_product.text = detailPublication.title
+        val format = NumberFormat.getCurrencyInstance(Locale.getDefault())
+        format.currency = Currency.getInstance(detailPublication.currency_id)
+        val price = format.format(detailPublication.price.roundToInt() as Int)
+        price_product.text ="$ ${price.replace(",00","").replace("ARS","")}"
 
         if (detailPublication.condition == "new") {
             condition.text = "Nuevo - ${detailPublication.sold_quantity.toString()} vendidos"

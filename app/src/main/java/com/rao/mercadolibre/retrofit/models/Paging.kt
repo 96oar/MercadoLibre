@@ -1,8 +1,10 @@
 package com.rao.mercadolibre.retrofit.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Paging(
-    val limit: Int,
-    val offset: Int,
-    val primary_results: Int,
-    val total: Int
+    @SerializedName("limit") val limit: Int,
+    @SerializedName("offset") val offset: Int,
+    @SerializedName("primary_results") val primary_results: Int,
+    @SerializedName("total") val total: Int
 )

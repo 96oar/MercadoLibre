@@ -10,6 +10,7 @@ import com.rao.mercadolibre.R.layout
 import com.rao.mercadolibre.adapter.ProductAdapter.ViewHolder
 import com.rao.mercadolibre.common.Constants
 import com.rao.mercadolibre.retrofit.models.Article
+import com.rao.mercadolibre.retrofit.models.TypePublication
 import com.rao.mercadolibre.ui.publication.DetailPublicationActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.publication.view.*
@@ -41,7 +42,7 @@ class ProductAdapter : RecyclerView.Adapter<ViewHolder>() {
         val publication = dataList[position]
         val format = NumberFormat.getCurrencyInstance(Locale.getDefault())
         format.currency = Currency.getInstance(publication.currency_id)
-        val price = format.format(publication.price.roundToInt() as Int)
+        val price = format.format(publication.price.roundToInt())
         holder.itemView.title.text = publication.title
         holder.itemView.price.text ="$ ${price.replace(",00","").replace("ARS","")}"
 
@@ -49,7 +50,7 @@ class ProductAdapter : RecyclerView.Adapter<ViewHolder>() {
             .load(publication.thumbnail.replace("http", "https"))
             .into(holder.itemView.logo_product)
 
-        if(publication.listing_type_id == "gold_special" ){
+        if(publication.listing_type_id ==  TypePublication.GOLD_PREMIUM){
             holder.itemView.ship_normally.visibility = View.VISIBLE
         }
 
@@ -60,7 +61,7 @@ class ProductAdapter : RecyclerView.Adapter<ViewHolder>() {
         }
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(it.context,DetailPublicationActivity::class.java).apply {
+            Intent(it.context,DetailPublicationActivity::class.java).apply {
                 putExtra(Constants.PUBLICATION_PARAM, Gson().toJson(publication))
                 it.context.startActivity(this)
             }

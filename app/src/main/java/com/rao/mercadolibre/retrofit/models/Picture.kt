@@ -1,10 +1,12 @@
 package com.rao.mercadolibre.retrofit.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Picture(
-    val id: String,
-    val max_size: String,
-    val quality: String,
-    val secure_url: String,
-    val size: String,
-    val url: String
+    @SerializedName("id") val id: String,
+    @SerializedName("max_size") val max_size: String,
+    @SerializedName("quality") val quality: String,
+    @SerializedName("secure_url") val secure_url: String,
+    @SerializedName("size") val size: String,
+    @SerializedName("url") val url: String
 )

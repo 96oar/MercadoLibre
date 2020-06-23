@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,11 +34,12 @@ class HomeActivity : AppCompatActivity() {
 
         search_product?.setOnKeyListener((View.OnKeyListener { v, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
-                if (searchViewModel.productList.value == null) {
-                    searchViewModel.searchProduct(search_product.text.toString())
+                    searchViewModel.searchProduct(search_product.text.toString()
+                    ) {
+                        Toast.makeText(this@HomeActivity,it,Toast.LENGTH_LONG).show()
+                    }
                     val inputMethod  = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                     inputMethod.hideSoftInputFromWindow(v.applicationWindowToken,0)
-                }
                 return@OnKeyListener true
             }
             false

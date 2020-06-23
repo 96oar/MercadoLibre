@@ -1,19 +1,21 @@
 package com.rao.mercadolibre.retrofit.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Article(
-    val accepts_mercadopago: Boolean,
-    val available_quantity: Int,
-    val buying_mode: String,
-    val condition: String,
-    val currency_id: String,
-    val id: String,
-    val listing_type_id: String,
-    val permalink: String,
-    val price: Double,
-    val site_id: String,
-    val sold_quantity: Int,
-    val stop_time: String,
-    val thumbnail: String,
-    val title: String,
-    val shipping: Shipping
+    @SerializedName("accepts_mercadopago") val accepts_mercadopago: Boolean,
+    @SerializedName("available_quantity") val available_quantity: Int,
+    @SerializedName("buying_mode") val buying_mode: String,
+    @SerializedName("condition") val condition: String,
+    @SerializedName("currency_id") val currency_id: String,
+    @SerializedName("id") val id: String,
+    @SerializedName("listing_type_id") val listing_type_id: String,
+    @SerializedName("permalink") val permalink: String,
+    @SerializedName("price") val price: Double,
+    @SerializedName("site_id") val site_id: String,
+    @SerializedName("sold_quantity") val sold_quantity: Int,
+    @SerializedName("stop_time") val stop_time: String,
+    @SerializedName("thumbnail") val thumbnail: String,
+    @SerializedName("title") val title: String,
+    @SerializedName("shipping") val shipping: Shipping
 )

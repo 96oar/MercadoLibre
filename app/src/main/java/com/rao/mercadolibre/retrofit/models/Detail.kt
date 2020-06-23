@@ -1,8 +1,10 @@
 package com.rao.mercadolibre.retrofit.models
 
-data class Detail (
-    val id : String,
-    val created : String,
-    val plain_text : String,
-    val pictures:ArrayList<Picture>
+import com.google.gson.annotations.SerializedName
+
+data class Detail(
+    @SerializedName("id") val id: String,
+    @SerializedName("created") val created: String,
+    @SerializedName("plain_text") val plain_text: String,
+    @SerializedName("pictures") val pictures: ArrayList<Picture>
 )

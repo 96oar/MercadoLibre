@@ -5,10 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
+import com.rao.mercadolibre.ui.publication.DetailPublicationActivity
 import com.squareup.picasso.Picasso
 
-class PictureAdapter(val context: Context,val imageUrls: ArrayList<com.rao.mercadolibre.retrofit.models.Picture>) : PagerAdapter() {
-
+class PictureAdapter(val imageUrls: ArrayList<com.rao.mercadolibre.retrofit.models.Picture>) : PagerAdapter() {
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
         return view == `object`
     }
@@ -18,7 +18,7 @@ class PictureAdapter(val context: Context,val imageUrls: ArrayList<com.rao.merca
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val imageView = ImageView(context)
+        val imageView = ImageView(container.context)
         Picasso.get()
             .load(imageUrls[position].secure_url)
             .into(imageView);

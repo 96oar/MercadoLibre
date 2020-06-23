@@ -12,18 +12,23 @@ class HomeViewModel() : ViewModel() {
 
     val productList = MutableLiveData<Response>()
 
-    fun searchProduct(product: String) {
+    fun searchProduct(product: String,
+                      onFailure:(message:String)-> Unit) {
         //(Product:String , onFailure(call,t), onSuccessful(call,reponse)
         meLiRepository.responseSearch(
             product,
             { _, t ->
-                t.message?.let { Log.e("searchProduct", it) }
+                onFailure(t.message.toString())
             },
             { _, response ->
                 if (response.isSuccessful) {
-                    productList.postValue(response.body())
+                    if(!response.body()!!.results.isEmpty()) {
+                        productList.postValue(response.body())
+                    }else{
+                        onFailure("No se encontraron elementos.")
+                    }
                 }else{
-                    CodeError.evaluateResponseCode(response.code(),HomeViewModel::class.simpleName.toString())
+                    onFailure(CodeError.evaluateResponseCode(response.code()))
                 }
             })
     }

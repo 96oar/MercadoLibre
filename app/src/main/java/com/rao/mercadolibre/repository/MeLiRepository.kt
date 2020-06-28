@@ -7,7 +7,7 @@ import retrofit2.Call
 import retrofit2.Callback
 
 class MeLiRepository {
-    var meLiService: MeLiService? = null
+    private var meLiService: MeLiService? = null
 
     init {
         meLiService = MeLiService.instance
@@ -20,7 +20,6 @@ class MeLiRepository {
     ) {
         meLiService?.searchProduct(product)?.enqueue(object : Callback<Response> {
             override fun onFailure(call: Call<Response>, t: Throwable) {
-//                Toast.makeText(MyApp.instance, "Error en la llamada.", Toast.LENGTH_LONG).show()
                 onFailure(call, t);
             }
 

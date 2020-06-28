@@ -7,4 +7,7 @@
     <string name="bad_request">Bad Request</string>
     <string name="server_error">Server Error</string>
     <string name="unknown_error">Unknown Error</string>
+    <string name="no_elements">"No se encontraron elementos."</string>
+    <string name="error_connection">Hubo un error de conexión</string>
+    <string name="no_connection">Sin conexion a internet</string>
 </resources>

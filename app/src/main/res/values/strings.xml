@@ -7,4 +7,10 @@
     <string name="bad_request">Bad Request</string>
     <string name="server_error">Server Error</string>
     <string name="unknown_error">Unknown Error</string>
+    <string name="loading">Cargando...</string>
+    <string name="no_images">No se encontraron imagenes del producto.</string>
+    <string name="no_detail_product">No se encontro detalle del producto.</string>
+    <string name="no_connection">Sin conexion a internet.</string>
+    <string name="no_elements">No se encontraron elementos.</string>
+    <string name="error_connection">Hubo un error de conexion.</string>
 </resources>

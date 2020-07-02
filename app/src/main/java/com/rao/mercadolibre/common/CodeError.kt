@@ -4,19 +4,19 @@ import com.rao.mercadolibre.R
 
 class CodeError {
     companion object{
-        fun evaluateResponseCode(code: Int): String {
+        fun evaluateResponseCode(code: Int): Int {
             return when (code) {
                 404 -> {
-                    R.string.resource_not_found.toString()
+                    R.string.resource_not_found
                 }
                 400 -> {
-                    R.string.bad_request.toString()
+                    R.string.bad_request
                 }
                 in 500..599 -> {
-                    R.string.server_error.toString()
+                    R.string.server_error
                 }
                 else -> {
-                    R.string.unknown_error.toString()
+                    R.string.unknown_error
                 }
             }
         }

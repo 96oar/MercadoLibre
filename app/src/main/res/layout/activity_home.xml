@@ -8,7 +8,7 @@
     <include layout="@layout/toolbar"
              android:id="@+id/include"/>
 
-    <LinearLayout
+    <LinearLayout android:id="@+id/containerRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
